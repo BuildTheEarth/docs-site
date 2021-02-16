@@ -19,12 +19,6 @@ release = '2.0.0'
 
 '''GENERAL CONFIGURATION'''
 
-#source_parsers = {
-#    '.md': 'recommonmark.parser.CommonMarkParser',
-#}
-#source_suffix = ['.rst', '.md']
-# Source config
-
 templates_path = ['_templates']
 ## Add any paths that contain templates here, relative to this directory.
 

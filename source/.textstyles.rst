@@ -25,18 +25,6 @@
 
 .. role:: under
 .. role:: over
-.. role:: blink
-.. role:: line
 .. role:: strike
-
-.. role:: it
-.. role:: ob
-
-.. role:: small
-.. role:: large
-
-.. role:: center
-.. role:: left
-.. role:: right
 
 .. (c) Lilian Besson, 2011-2016, https://bitbucket.org/lbesson/web-sphinx/

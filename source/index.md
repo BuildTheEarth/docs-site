@@ -14,11 +14,4 @@ Welcome to the Build The Earth: Guide!
    
    bteguide/*
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 ```
