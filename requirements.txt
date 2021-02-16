@@ -1,4 +1,4 @@
-sphinx
+sphinx==3.5.1
 recommonmark
 sphinx_rtd_theme
 sphinx-autobuild
