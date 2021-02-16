@@ -12,7 +12,7 @@ Welcome to the Build The Earth: Guide!
    :caption: Contents:
    :glob:
    
-   *
+   bteguide/*
 
 
 Indices and tables
