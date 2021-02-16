@@ -1,0 +1,3 @@
+[submodule "source/bteguide"]
+	path = source/bteguide
+	url = https://github.com/EzraEn1/bteguide.git
