@@ -2,3 +2,5 @@
 	path = source
 	url = https://github.com/EzraEn1/bteguide.git
 	branch = main
+[submodule ".\\source\\"]
+	branch = main
