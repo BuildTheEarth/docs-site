@@ -31,3 +31,4 @@ Updating the source to push an update:
 ```
  $ git submodule update --remote
 ```
+Make sure you trigger a build via the RTFD Project Home.
