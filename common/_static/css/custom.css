@@ -1,0 +1,26 @@
+*, *:target {
+    scroll-behavior: smooth;
+    height: auto;
+    width: auto;
+}
+/* Smooth Scrolling feature, still buggy because CSS implementation is weird only on RTFD */
+
+@keyframes highlight {
+    0% {
+        background-color: cornflowerblue;
+        color: #fff;
+    }
+    100% {
+        background-color: initial;
+        color: initial;
+    }
+}
+.section:target {
+    animation: highlight 2s;
+}
+
+/* Nice on-focus highlighting because this is a wiki and link clarity is a very good thing. */
+
+nav {
+    width: max-content;
+}

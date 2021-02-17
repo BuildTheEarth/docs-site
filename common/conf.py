@@ -18,13 +18,14 @@ release = '2.0.0'
 
 
 '''GENERAL CONFIGURATION'''
-
 templates_path = ['_templates']
 ## Add any paths that contain templates here, relative to this directory.
 
-exclude_patterns = []
+#exclude_patterns = ['.textstyles.rst']
 ## List of patterns, relative to source directory, that match files and directories to ignore when looking for source files.
 ## This pattern also affects html_static_path and html_extra_path.
+
+
 
 
 '''INTERNATIONALIZATION OPTIONS'''
@@ -45,7 +46,8 @@ html_static_path = ['_static']
 ## They are copied after the builtin static files, so a file named "default.css" will overwrite the built-in "default.css".
 
 html_css_files = [
-    'css/textstyles.css'
+    'css/textstyles.css',
+    'css/custom.css'
 ]
 
 html_favicon = '_static/img/BTELogo.gif'
@@ -55,19 +57,19 @@ html_last_updated_fmt = ""
 
 
 '''rST BUILD OPTIONS'''
-
 rst_prolog = """
 .. include:: .textstyles.rst
 """
-## rST Header include.
+## rST Header include. 
+## Messes with warning output far too much right now to be justifiable until the right suppress_warnings option is available.
 
-
+'''GENERAL BUILD OPTIONS'''
 keep_warnings = True
 suppress_warnings = [
-    'ref.ref'
+    #'ref.ref'
 ]
 
-
+'''EXTENSION CONFIGURATION'''
 extensions = [
     'recommonmark',
     'sphinx.ext.todo',
@@ -79,6 +81,7 @@ extensions = [
 ## Add any Sphinx extension module names here, as strings. They can be extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 
 todo_include_todos = True
+todo_emit_warnings = True
 extlinks = {
     'bte': ('https://buildtheearth.net/%s', 'Website ')
 }
@@ -92,3 +95,4 @@ def setup(app):
             'auto_toc_tree_section': 'Contents',
             }, True)
     app.add_transform(AutoStructify)
+# Sets AutoStructify up, enables a lot of great features not present in CommonMark (but present in ReCommonMark).
