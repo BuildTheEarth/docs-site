@@ -39,30 +39,33 @@ Make sure you trigger a build via the RTFD Project Home.
 Previously, when we were using the sphinx-quickstart configuration, much of the documentation ended up cluttering up the site code. Translation was also very difficult via `sphinx-intl` for a variety of reasons. 
 1. The root index file (which would be considered as a document) and the base source weren't isolated, which meant that the site directory during translation was like this:
 
-```mermaid
-graph LR
-    root --- /source
-    /source --- /_static
-    /source --- /_templates
-    /source --- a(index.md)
-    /source --- /locale
-    /locale --- /lang
-    /lang --- b(translated-index.po)
-```
+   <!--```mermaid
+   graph LR
+       root --- /source
+       /source --- /_static
+       /source --- /_templates
+       /source --- a(index.md)
+       /source --- /locale
+       /locale --- /lang
+       /lang --- b(translated-index.po)
+   ```--->
 
-Rather than a flatter, more straightforward and better isolated directory tree:
+   ![Sphinx Default](readme-assets/sphinx-default.png)
 
-```mermaid
-graph LR
-    root --- /source
-    root --- /common
-    /common --- /_static
-    /common --- /_templates
-    /source --- /en
-    /en --- a(index.md)
-    /source --- /lang
-    /lang --- b(translated-index.md)
-```
+   Rather than a flatter, more straightforward and better isolated directory tree:
+
+   <!---```mermaid
+   graph LR
+       root --- /source
+       root --- /common
+       /common --- /_static
+       /common --- /_templates
+       /source --- /en
+       /en --- a(index.md)
+       /source --- /lang
+       /lang --- b(translated-index.md)
+   ```--->
+   ![Sphinx++](readme-assets/sphinx-utopia.png)
 
 2. `sphinx-intl` requires the use of `gettext`. While it is industry-standard, to need to pay entire platforms like Transifex or Crowdin to handle our _strings_ is absurd, seeing how it is only `gettext`'s own unnecessary complexity that has lead to the state of the i18n industry. The string method of translation simply does not serve our wiki-style needs. The need to _build_ from .po, then .mo files? Far too convoluted, and I don't expect our translators to want to deal with not just 2 times the content per document, but 3 times the files!
 
@@ -70,22 +73,23 @@ graph LR
 
 Clearly sphinx's i18n feature needs work. As expected, we went with the flattened site directory, which separated site code from content and documentation.
 
-```mermaid
-graph LR
-    root --- /source
-    subgraph "Website Code Repo (bteguide-site)"
-    root --- /common
-    /common --- /_static
-    /common --- /_templates
-    end
-    subgraph "Documentation Repo (bteguide)"
-    /source --- /en
-        /en --- a(index.md)
-    /source --- /lang
-        /lang --- b(translated-index.md)
-    /source ---c(conf.py)
-    end
-```
+   <!--```mermaid
+   graph LR
+       root --- /source
+       subgraph "Website Code Repo (bteguide-site)"
+       root --- /common
+       /common --- /_static
+       /common --- /_templates
+       end
+       subgraph "Documentation Repo (bteguide)"
+       /source --- /en
+           /en --- a(index.md)
+       /source --- /lang
+           /lang --- b(translated-index.md)
+       /source ---c(conf.py)
+       end
+   ```--->
+   ![BTEGuide Now](readme-assets/bteguide-now.png)
 
 Of course, this was not how Sphinx intended things to be. So in order to enforce that separation and clean up the repo in the process for copywriters, compromises had to be made. 
 - The /source directory is the entire `bteguide` repo, which is placed there via `git`'s Submodules feature. **Git Submodules are notoriously finicky**. But over Git Subtree they do allow us to work with our submodule source locally in a nested and isolated fashion.
