@@ -5,14 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Update submodule
-        - run: |
-            git config user.name github-actions
-            git config user.email github-actions@github.com
-            git submodule update --remote
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git submodule update --remote
       - name: Commit and Push submodule update
-        - run:
-            git add -A
-            git commit -m "Push Documentation update"
-            git push
+        run: |
+          git add -A
+          git commit -m "Push Documentation update"
+          git push
