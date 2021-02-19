@@ -21,18 +21,11 @@ The Makefile and make.bat are both configured with Live Reload enabled. Start th
 
 ## Fetching/Updating the source documents
 
-Fetching the source for the actual site:
+Fetching the source for the documents manually:
 ```
- $ git submodule init
- $ git submodule update
+ $ git submodule update --remote --init
 ```
-
-Updating the source submodule to push a documentation update:
-```
- $ git submodule update --remote
-```
-Make sure you trigger a build via the RTFD Project Home.
-
+You should rarely ever need to do this, just keep your repo updated via `git pull`.
 
 ## Workflow
 
@@ -96,12 +89,11 @@ Of course, this was not how Sphinx intended things to be. So in order to enforce
   
 - `conf.py`, a file that would be considered as website-specific code, has to stay in the submodule repo in order for the documentation to be recognised without adding an extra directory layer in between /source and any /lang. This isn't a big deal, but it breaks the code/documentation split.
   
-- For *any change* in the documentation to be pushed to live, a series of convoluted steps has to occur.
+- For any change in the documentation to be pushed live, a series of automated steps occur (Thank GitHub Actions!). 
 
   1. The documentation edit is committed and pushed to the `bteguide` repo.
-  2. The Git Submodule in `bteguide-site` must be updated from the remote using `git submodule update --remote`. ReadTheDocs' build process _does not do this for you_, and step 3 is required because of that.
-  > From my preliminary testing, there seems to be weird exceptions in Git where `git submodule update --init` fetches the latest commit, while `--remote` does not? Needs more research.
-  3. The submodule update is committed and pushed to the `bteguide-site` remote.
-  4. A build is triggered on the ReadTheDocs project. Should anything go wrong, repeat from either 1 or 3 accordingly.
+  2. `trigger-bteguide-fetch` triggers `bteguide-fetch` on this repo. 
+  3. The submodule update is committed and pushed by `bteguide-fetch`.
+  4. A build is triggered on the ReadTheDocs project via webhook.
 
 Of course, if there are more elegant solutions or alternatives to what we have now, please do chime in on the Github Discussion and give us your suggestions!
