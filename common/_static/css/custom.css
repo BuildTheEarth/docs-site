@@ -1,9 +1,11 @@
-*, *:target {
+/*
+ *, *:target {
     scroll-behavior: smooth;
     height: auto;
     width: auto;
 }
-/* Smooth Scrolling feature, still buggy because CSS implementation is weird only on RTFD */
+Smooth Scrolling feature, still buggy because CSS implementation is weird only on RTFD. Disabled until further notice. */
+
 
 @keyframes highlight {
     0% {
