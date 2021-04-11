@@ -2,6 +2,7 @@
 Source for the BTE ReadTheDocs. Exclusively contains configuration and custom code that doesn't belong in the actual documentation.
 
 ## Contributing to Development
+<!--TODO: Enforce usage of pyenv. Environment isolation is pretty important.-->
 
 Install the required packages with:
 ```
@@ -85,7 +86,7 @@ Clearly sphinx's i18n feature needs work. As expected, we went with the flattene
    ![BTEGuide Now](readme-assets/bteguide-now.png)
 
 Of course, this was not how Sphinx intended things to be. So in order to enforce that separation and clean up the repo in the process for copywriters, compromises had to be made. 
-- The /source directory is the entire `bteguide` repo, which is placed there via `git`'s Submodules feature. **Git Submodules are notoriously finicky**. But over Git Subtree they do allow us to work with our submodule source locally in a nested and isolated fashion.
+- The `/source` directory is the entire `bteguide` repo, which is placed there via `git`'s Submodules feature. **Git Submodules are notoriously finicky**. But over Git Subtree they do allow us to work with our submodule source locally in a nested and isolated fashion.
   
 - `conf.py`, a file that would be considered as website-specific code, has to stay in the submodule repo in order for the documentation to be recognised without adding an extra directory layer in between /source and any /lang. This isn't a big deal, but it breaks the code/documentation split.
   
@@ -96,4 +97,4 @@ Of course, this was not how Sphinx intended things to be. So in order to enforce
   3. The submodule update is committed and pushed by `bteguide-fetch`.
   4. A build is triggered on the ReadTheDocs project via webhook.
 
-Of course, if there are more elegant solutions or alternatives to what we have now, please do chime in on the Github Discussion and give us your suggestions!
+Of course, if there are more elegant solutions or alternatives to what we have now, please do contact EzraEn#4291 on [the Discord](https://discord.com/invite/3mrQBYd) and give us your suggestions!
