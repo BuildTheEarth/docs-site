@@ -1,5 +1,5 @@
 # docs-site
-Source for the BTE ReadTheDocs Sphinx Setup. Exclusively contains configuration and custom code that doesn't belong in the actual documentation. If you're looking for the Documentation content, head over to the >BuildTheEarth/docs>[https://github.com/BuildTheEarth/docs] repo.
+Source for the BTE ReadTheDocs Sphinx Setup. Exclusively contains configuration and custom code that doesn't belong in the actual documentation. If you're looking for the Documentation content, head over to the [BuildTheEarth/docs](https://github.com/BuildTheEarth/docs) repo.
 
 ## Contributing to Development
 <!--TODO: Enforce usage of pyenv. Environment isolation is pretty important.
