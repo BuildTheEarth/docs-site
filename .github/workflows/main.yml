@@ -1,4 +1,4 @@
-name: bteguide-fetch
+name: docs-fetch
 on: workflow_dispatch
 jobs:
   build:

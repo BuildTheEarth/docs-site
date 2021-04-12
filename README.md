@@ -1,8 +1,9 @@
-# bteguide-site
-Source for the BTE ReadTheDocs. Exclusively contains configuration and custom code that doesn't belong in the actual documentation.
+# docs-site
+Source for the BTE ReadTheDocs Sphinx Setup. Exclusively contains configuration and custom code that doesn't belong in the actual documentation. If you're looking for the Documentation content, head over to the [BuildTheEarth/docs]<https://github.com/BuildTheEarth/docs> repo.
 
 ## Contributing to Development
-<!--TODO: Enforce usage of pyenv. Environment isolation is pretty important.-->
+<!--TODO: Enforce usage of pyenv. Environment isolation is pretty important.
+    TODO: Update Mermaid Diagrams. Repo no longer under bteguide name.-->
 
 Install the required packages with:
 ```
@@ -70,12 +71,12 @@ Clearly sphinx's i18n feature needs work. As expected, we went with the flattene
    <!--```mermaid
    graph LR
        root --- /source
-       subgraph "Website Code Repo (bteguide-site)"
+       subgraph "Website Code Repo (docs-site)"
        root --- /common
        /common --- /_static
        /common --- /_templates
        end
-       subgraph "Documentation Repo (bteguide)"
+       subgraph "Content Repo (docs)"
        /source --- /en
            /en --- a(index.md)
        /source --- /lang
@@ -83,18 +84,18 @@ Clearly sphinx's i18n feature needs work. As expected, we went with the flattene
        /source ---c(conf.py)
        end
    ```--->
-   ![BTEGuide Now](readme-assets/bteguide-now.png)
+   ![docs Now](readme-assets/docs-now.png)
 
 Of course, this was not how Sphinx intended things to be. So in order to enforce that separation and clean up the repo in the process for copywriters, compromises had to be made. 
-- The `/source` directory is the entire `bteguide` repo, which is placed there via `git`'s Submodules feature. **Git Submodules are notoriously finicky**. But over Git Subtree they do allow us to work with our submodule source locally in a nested and isolated fashion.
+- The `/source` directory is the entire `docs` repo, which is placed there via `git`'s Submodules feature. **Git Submodules are notoriously finicky**. But over Git Subtree they do allow us to work with our submodule source locally in a nested and isolated fashion.
   
 - `conf.py`, a file that would be considered as website-specific code, has to stay in the submodule repo in order for the documentation to be recognised without adding an extra directory layer in between /source and any /lang. This isn't a big deal, but it breaks the code/documentation split.
   
 - For any change in the documentation to be pushed live, a series of automated steps occur (Thank GitHub Actions!). 
 
-  1. The documentation edit is committed and pushed to the `bteguide` repo.
-  2. `trigger-bteguide-fetch` triggers `bteguide-fetch` on this repo. 
-  3. The submodule update is committed and pushed by `bteguide-fetch`.
+  1. The documentation edit is committed and pushed to the `docs` repo.
+  2. `trigger-docs-fetch` triggers `docs-fetch` on this repo. 
+  3. The submodule update is committed and pushed by `docs-fetch`.
   4. A build is triggered on the ReadTheDocs project via webhook.
 
 Of course, if there are more elegant solutions or alternatives to what we have now, please do contact EzraEn#4291 on [the Discord](https://discord.com/invite/3mrQBYd) and give us your suggestions!

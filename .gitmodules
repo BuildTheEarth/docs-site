@@ -1,4 +1,4 @@
 [submodule "source"]
 	path = source
-	url = https://github.com/BuildTheEarth/bteguide.git
+	url = https://github.com/BuildTheEarth/docs.git
 	branch = main
