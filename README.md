@@ -84,7 +84,7 @@ Clearly sphinx's i18n feature needs work. As expected, we went with the flattene
        /source ---c(conf.py)
        end
    ```--->
-   ![docs Now](readme-assets/docs-now.png)
+   ![docs Now](readme-assets/bteguide-now.png)
 
 Of course, this was not how Sphinx intended things to be. So in order to enforce that separation and clean up the repo in the process for copywriters, compromises had to be made. 
 - The `/source` directory is the entire `docs` repo, which is placed there via `git`'s Submodules feature. **Git Submodules are notoriously finicky**. But over Git Subtree they do allow us to work with our submodule source locally in a nested and isolated fashion.
