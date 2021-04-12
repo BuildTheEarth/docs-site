@@ -1,5 +1,4 @@
-sphinx
-docutils
+sphinx>3
 recommonmark
 sphinx_rtd_theme
 sphinx-autobuild
