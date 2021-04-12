@@ -1,7 +1,5 @@
 sphinx
-docutils
 recommonmark
 sphinx_rtd_theme
 sphinx-autobuild
 sphinx-markdown-tables
-sphinx_markdown_parser
